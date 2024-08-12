@@ -1,0 +1,11 @@
+.boomboxHandleContainer {
+    height: 100px;
+    width: 1400px;
+    outline: 2px solid black;
+}
+
+.boomboxOutline {
+    height: 800px;
+    width: 1400px;
+    outline: 2px solid black;
+}
