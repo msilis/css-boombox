@@ -1,11 +1,83 @@
-.boomboxHandleContainer {
-    height: 100px;
+.boomboxOutline {
+    display: flex;
+    height: 800px;
     width: 1400px;
     outline: 2px solid black;
 }
 
-.boomboxOutline {
-    height: 800px;
-    width: 1400px;
+.boomboxColumn {
+    width: 33.33%;
+    height: 100%;
+    position: relative;
+}
+
+.middleColumn {
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+}
+
+.boomboxWooferLeft {
+    width: 400px;
+    height: 400px;
     outline: 2px solid black;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+}
+
+.boomboxWooferRight {
+    width: 400px;
+    height: 400px;
+    outline: 2px solid black;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+}
+
+.boomboxTweeterLeft {
+    height: 150px;
+    width: 150px;
+    outline: 2px solid black;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+}
+
+.boomboxTweeterRight {
+    height: 150px;
+    width: 150px;
+    outline: 2px solid black;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.boomboxTweeterRight {
+    height: 150px;
+    width: 150px;
+    outline: 2px solid black;
+    border-radius: 50%;
+}
+
+.cassetteButtonRow {
+    width: 400px;
+    height: 100px;
+    outline: 1px solid gray;
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    border-radius: 5px;
+    display: flex;
+}
+
+.buttonRowButton {
+    height: 80px;
+    width: 70px;
+    outline: 2px solid black;
+    border-radius: 5px;
+    margin: auto;
 }
