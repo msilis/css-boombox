@@ -19,48 +19,117 @@
 .boomboxWooferLeft {
     width: 400px;
     height: 400px;
-    outline: 2px solid black;
+    outline: 5px solid black;
     border-radius: 50%;
     position: absolute;
     bottom: 20px;
     left: 15px;
+    background: radial-gradient(
+        circle,
+        rgba(94, 92, 92, 1) 30%,
+        rgba(221, 217, 217, 1) 100%
+    );
+}
+
+.leftWooferInner {
+    width: 150px;
+    height: 150px;
+    outline: 2px solid black;
+    border-radius: 50%;
+    margin-top: 32%;
+    margin-left: 32%;
+    background: radial-gradient(
+        circle,
+        rgba(221, 217, 217, 1),
+        rgba(94, 92, 92, 1)
+    );
+}
+
+.rightWooferInner {
+    width: 150px;
+    height: 150px;
+    outline: 2px solid black;
+    border-radius: 50%;
+    margin-top: 32%;
+    margin-left: 32%;
+    background: radial-gradient(
+        circle,
+        rgba(221, 217, 217, 1),
+        rgba(94, 92, 92, 1)
+    );
 }
 
 .boomboxWooferRight {
     width: 400px;
     height: 400px;
-    outline: 2px solid black;
+    outline: 5px solid black;
     border-radius: 50%;
     position: absolute;
     bottom: 20px;
     right: 15px;
+    background: radial-gradient(
+        circle,
+        rgba(94, 92, 92, 1) 30%,
+        rgba(221, 217, 217, 1) 100%
+    );
 }
 
 .boomboxTweeterLeft {
     height: 150px;
     width: 150px;
-    outline: 2px solid black;
+    border: 20px solid black;
     border-radius: 50%;
     position: absolute;
     top: 10px;
     left: 15px;
+    background: radial-gradient(
+        circle,
+        rgba(94, 92, 92, 1) 30%,
+        rgba(221, 217, 217, 1) 100%
+    );
+}
+
+.leftTweeterInner {
+    height: 50px;
+    width: 50px;
+    outline: 2px solid black;
+    border-radius: 50%;
+    margin-top: 32%;
+    margin-left: 32%;
+    background: radial-gradient(
+        circle,
+        rgba(221, 217, 217, 1),
+        rgba(94, 92, 92, 1)
+    );
+}
+
+.rightTweeterInner {
+    height: 50px;
+    width: 50px;
+    outline: 2px solid black;
+    border-radius: 50%;
+    margin-top: 32%;
+    margin-left: 32%;
+    background: radial-gradient(
+        circle,
+        rgba(221, 217, 217, 1),
+        rgba(94, 92, 92, 1)
+    );
 }
 
 .boomboxTweeterRight {
     height: 150px;
     width: 150px;
-    outline: 2px solid black;
+    border: 20px solid black;
     border-radius: 50%;
     position: absolute;
     top: 10px;
     right: 15px;
-}
-
-.boomboxTweeterRight {
-    height: 150px;
-    width: 150px;
-    outline: 2px solid black;
-    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(94, 92, 92, 1) 30%,
+        rgba(221, 217, 217, 1) 100%
+    );
 }
 
 /* Casette */
