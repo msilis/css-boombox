@@ -248,3 +248,8 @@
     margin-right: auto;
     display: flex;
 }
+
+#stopButton:active {
+    transform: perspective(500px) rotateX(-20deg);
+    transform-origin: top;
+}

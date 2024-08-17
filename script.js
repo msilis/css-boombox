@@ -32,11 +32,17 @@ addEventListener("DOMContentLoaded", () => {
       "animation",
       "cassettePlayAnimation 2s linear infinite",
     );
+    playButton.style.setProperty("transform", "perspective(500px')");
+
+    playButton.style.setProperty("transform", "rotateX(-20deg)");
+
+    playButton.style.setProperty("transform-origin", "top");
   };
 
   const handleStopClick = () => {
     leftSpool.style.removeProperty("animation");
     rightSpool.style.removeProperty("animation");
+    playButton.style.removeProperty("transform");
   };
 
   playButton.addEventListener("click", handlePlayClick);
