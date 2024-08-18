@@ -151,12 +151,6 @@
     transform-origin: bottom;
 }
 
-/* .cassetteContainer:hover {
-    transform: rotateX(30deg);
-    transform-origin: bottom;
-    box-shadow: 10px 10px black;
-} */
-
 @keyframes doorOpen {
     0% {
         transform: rotateX(10deg);
@@ -180,11 +174,11 @@
         border-top: 35px solid black;
     }
     50% {
-        transform: rotateX(20deg);
+        transform: rotateX(10deg);
         box-shadow: 5px 5px 5px black;
+        border-top: 10px solid black;
     }
     100% {
-        transform: rotateX(10deg);
         box-shadow: none;
         border-top: none;
     }
@@ -224,7 +218,7 @@
     z-index: 9;
 }
 
-@keyframes spoolAnimation {
+@keyframes spoolAnimationOpen {
     0% {
         transform: rotateX(-5deg);
         box-shadow: 2px 2px 2px darkgray;
@@ -239,8 +233,28 @@
     }
 }
 
-.cassetteSpoolAnimation {
-    animation: spoolAnimation 2s linear;
+@keyframes spoolAnimationClose {
+    0% {
+        transform: rotateX(-15deg);
+        box-shadow: 15px 15px 15px darkgray;
+    }
+    50% {
+        transform: rotateX(-10deg);
+        box-shadow: 10px 10px 10px darkgray;
+    }
+    100% {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+.cassetteSpoolAnimationOpen {
+    animation: spoolAnimationOpen 2s linear;
+    animation-fill-mode: forwards;
+}
+
+.cassetteSpoolAnimationClose {
+    animation: spoolAnimationClose 2s linear;
     animation-fill-mode: forwards;
 }
 
@@ -328,7 +342,7 @@
     display: flex;
 }
 
-#stopButton:active {
+.buttonRowButton:active {
     transform: perspective(500px) rotateX(-20deg);
     transform-origin: top;
     box-shadow: 5px 5px 5px gray;

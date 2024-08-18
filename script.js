@@ -8,27 +8,11 @@ addEventListener("DOMContentLoaded", () => {
   const cassetteSpoolRight = document.querySelector(".cassetteSpoolRight");
   const cassetteSpoolLeft = document.querySelector(".cassetteSpoolLeft");
 
-  const getCssRules = (selector) => {
-    const allRules = document.styleSheets;
-
-    for (const sheet of allRules) {
-      try {
-        const rules = sheet.cssRules;
-        const rule = [...rules].find((rule) => rule.selectorText === selector);
-        if (rule) return rule;
-      } catch (error) {
-        console.error(
-          (`Error accessing CSS rule for selector '${selector}':`, error),
-        );
-      }
-      return null;
-    }
-  };
-
   const stylesheet = document.styleSheets;
   let doorOpen = false;
 
   const handlePlayClick = () => {
+    if (doorOpen) return;
     leftSpool.style.setProperty(
       "animation",
       "cassettePlayAnimation 2s linear infinite",
@@ -51,9 +35,14 @@ addEventListener("DOMContentLoaded", () => {
   };
 
   const handleEjectClick = () => {
+    if (cassetteContainer.classList.contains("cassetteContainerClosed")) {
+      cassetteContainer.classList.remove("cassetteContainerClosed");
+      cassetteSpoolLeft.classList.remove("cassetteSpoolAnimationClose");
+      cassetteSpoolRight.classList.remove("cassetteSpoolAnimationClose");
+    }
     cassetteContainer.classList.add("cassetteContainerOpen");
-    cassetteSpoolLeft.classList.add("cassetteSpoolAnimation");
-    cassetteSpoolRight.classList.add("cassetteSpoolAnimation");
+    cassetteSpoolLeft.classList.add("cassetteSpoolAnimationOpen");
+    cassetteSpoolRight.classList.add("cassetteSpoolAnimationOpen");
     doorOpen = true;
   };
 
@@ -69,8 +58,11 @@ addEventListener("DOMContentLoaded", () => {
       cassetteContainer.style.removeProperty("cursor");
       cassetteContainer.classList.remove(".cassetteContainerOpen");
       cassetteContainer.classList.add("cassetteContainerClosed");
+      cassetteSpoolLeft.classList.add("cassetteSpoolAnimationClose");
+      cassetteSpoolRight.classList.add("cassetteSpoolAnimationClose");
       doorOpen = false;
     }
+    return;
   };
 
   playButton.addEventListener("click", handlePlayClick);
