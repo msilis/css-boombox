@@ -4,6 +4,8 @@ addEventListener("DOMContentLoaded", () => {
   const leftSpool = document.getElementById("leftSpoolInner");
   const rightSpool = document.getElementById("rightSpoolInner");
   const ejectButton = document.getElementById("ejectButton");
+  const forwardButton = document.getElementById("forwardButton");
+  const rewindButton = document.getElementById("rewindButton");
   const cassetteContainer = document.querySelector(".cassetteContainer");
   const cassetteSpoolRight = document.querySelector(".cassetteSpoolRight");
   const cassetteSpoolLeft = document.querySelector(".cassetteSpoolLeft");
@@ -44,6 +46,14 @@ addEventListener("DOMContentLoaded", () => {
     playButton.style.removeProperty("box-shadow");
     leftWoofer.style.removeProperty("animation");
     rightWoofer.style.removeProperty("animation");
+    if (forwardButton.style.transform) {
+      forwardButton.style.removeProperty("transform");
+      forwardButton.style.removeProperty("box-shadow");
+    }
+    if (rewindButton.style.transform) {
+      rewindButton.style.removeProperty("transform");
+      rewindButton.style.removeProperty("box-shadow");
+    }
   };
 
   const handleEjectClick = () => {
@@ -58,6 +68,8 @@ addEventListener("DOMContentLoaded", () => {
       rightSpool.style.removeProperty("animation");
       playButton.style.removeProperty("transform");
       playButton.style.removeProperty("box-shadow");
+      leftWoofer.style.removeProperty("animation");
+      rightWoofer.style.removeProperty("animation");
     }
     cassetteContainer.classList.add("cassetteContainerOpen");
     cassetteSpoolLeft.classList.add("cassetteSpoolAnimationOpen");
@@ -84,9 +96,40 @@ addEventListener("DOMContentLoaded", () => {
     return;
   };
 
+  const handleFastForwardClick = () => {
+    handleStopClick();
+    leftSpool.style.setProperty(
+      "animation",
+      "cassettePlayAnimation .5s linear infinite",
+    );
+    rightSpool.style.setProperty(
+      "animation",
+      "cassettePlayAnimation .5s linear infinite",
+    );
+    forwardButton.style.setProperty("transform", "rotateX(-20deg)");
+    forwardButton.style.setProperty("transform-origin", "top");
+    forwardButton.style.setProperty("box-shadow", "5px 5px 5px gray");
+  };
+  const handleRewindClick = () => {
+    handleStopClick();
+    leftSpool.style.setProperty(
+      "animation",
+      "cassetteRewindAnimation .5s linear infinite",
+    );
+    rightSpool.style.setProperty(
+      "animation",
+      "cassetteRewindAnimation .5s linear infinite",
+    );
+    rewindButton.style.setProperty("transform", "rotateX(-20deg)");
+    rewindButton.style.setProperty("transform-origin", "top");
+    rewindButton.style.setProperty("box-shadow", "5px 5px 5px gray");
+  };
+
   playButton.addEventListener("click", handlePlayClick);
   stopButton.addEventListener("click", handleStopClick);
   ejectButton.addEventListener("click", handleEjectClick);
+  forwardButton.addEventListener("click", handleFastForwardClick);
+  rewindButton.addEventListener("click", handleRewindClick);
   cassetteContainer.addEventListener("mouseover", handleCassetteHover);
   cassetteContainer.addEventListener("click", handleCassetteClose);
 });
