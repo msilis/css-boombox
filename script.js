@@ -7,6 +7,8 @@ addEventListener("DOMContentLoaded", () => {
   const cassetteContainer = document.querySelector(".cassetteContainer");
   const cassetteSpoolRight = document.querySelector(".cassetteSpoolRight");
   const cassetteSpoolLeft = document.querySelector(".cassetteSpoolLeft");
+  const leftWoofer = document.querySelector(".boomboxWooferLeft");
+  const rightWoofer = document.querySelector(".boomboxWooferRight");
 
   const stylesheet = document.styleSheets;
   let doorOpen = false;
@@ -21,6 +23,14 @@ addEventListener("DOMContentLoaded", () => {
       "animation",
       "cassettePlayAnimation 2s linear infinite",
     );
+    leftWoofer.style.setProperty(
+      "animation",
+      "wooferAnimation 0.5s linear infinite",
+    );
+    rightWoofer.style.setProperty(
+      "animation",
+      "wooferAnimation 0.5s linear infinite",
+    );
 
     playButton.style.setProperty("transform", "rotateX(-20deg)");
     playButton.style.setProperty("transform-origin", "top");
@@ -32,6 +42,8 @@ addEventListener("DOMContentLoaded", () => {
     rightSpool.style.removeProperty("animation");
     playButton.style.removeProperty("transform");
     playButton.style.removeProperty("box-shadow");
+    leftWoofer.style.removeProperty("animation");
+    rightWoofer.style.removeProperty("animation");
   };
 
   const handleEjectClick = () => {
@@ -39,6 +51,13 @@ addEventListener("DOMContentLoaded", () => {
       cassetteContainer.classList.remove("cassetteContainerClosed");
       cassetteSpoolLeft.classList.remove("cassetteSpoolAnimationClose");
       cassetteSpoolRight.classList.remove("cassetteSpoolAnimationClose");
+    }
+
+    if (leftSpool.style.animation) {
+      leftSpool.style.removeProperty("animation");
+      rightSpool.style.removeProperty("animation");
+      playButton.style.removeProperty("transform");
+      playButton.style.removeProperty("box-shadow");
     }
     cassetteContainer.classList.add("cassetteContainerOpen");
     cassetteSpoolLeft.classList.add("cassetteSpoolAnimationOpen");

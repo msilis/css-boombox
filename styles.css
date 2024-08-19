@@ -21,6 +21,25 @@
     border-right: 1px solid lightgray;
 }
 
+@keyframes wooferAnimation {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.005);
+    }
+    50% {
+        transform: scale(1.002);
+    }
+
+    75% {
+        transform: scale(1.009);
+    }
+    100% {
+        transform: scale(1.008);
+    }
+}
+
 .boomboxWooferLeft {
     width: 400px;
     height: 400px;
@@ -77,6 +96,7 @@
         rgba(94, 92, 92, 1) 30%,
         rgba(221, 217, 217, 1) 100%
     );
+    /* animation: wooferAnimation 0.5s linear infinite; */
 }
 
 .boomboxTweeterLeft {
@@ -385,7 +405,8 @@
 }
 
 .frequencies {
-    font-size: 8px;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -402,6 +423,7 @@
     left: 30px;
     top: 140px;
     background-color: whitesmoke;
+    display: flex;
 }
 
 .tunerKnob {
@@ -432,4 +454,30 @@
         rgba(94, 92, 92, 0.6),
         rgba(221, 217, 217, 1)
     );
+}
+
+.radioControlButtonContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 30px;
+    padding-top: 15px;
+    margin-left: 120px;
+}
+
+.radioControlButton {
+    height: 70px;
+    width: 40px;
+    outline: 2px solid black;
+    border-radius: 3px;
+    font-size: 10px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 2px 2px 2px black;
+}
+
+.radioControlButton:active {
+    transform: perspective(500px) rotateX(-20deg);
+    transform-origin: top;
+    box-shadow: 5px 5px 5px gray;
 }
