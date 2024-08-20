@@ -490,3 +490,18 @@
     transform-origin: top;
     box-shadow: 5px 5px 5px gray;
 }
+
+.powerLight {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    outline: 2px solid darkred;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: darkred;
+}
+
+#powerButton {
+    transform-origin: top;
+}

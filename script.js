@@ -11,9 +11,12 @@ addEventListener("DOMContentLoaded", () => {
   const cassetteSpoolLeft = document.querySelector(".cassetteSpoolLeft");
   const leftWoofer = document.querySelector(".boomboxWooferLeft");
   const rightWoofer = document.querySelector(".boomboxWooferRight");
+  const powerButton = document.getElementById("powerButton");
+  const powerLight = document.querySelector(".powerLight");
 
   const stylesheet = document.styleSheets;
   let doorOpen = false;
+  let power = false;
 
   const handlePlayClick = () => {
     if (doorOpen) return;
@@ -125,6 +128,25 @@ addEventListener("DOMContentLoaded", () => {
     rewindButton.style.setProperty("box-shadow", "5px 5px 5px gray");
   };
 
+  const handlePowerClick = () => {
+    console.log(power, "POWER");
+    if (power === false) {
+      console.log("power on");
+      powerButton.style.setProperty("transform", "rotateX(-20deg)");
+      powerButton.style.setProperty("box-shadow", "5px 5px 5px gray");
+      powerLight.style.setProperty("box-shadow", "3px 3px 3px red");
+      powerLight.style.setProperty("background-color", "red");
+      power = true;
+    } else {
+      console.log("power off");
+      powerButton.style.removeProperty("transform");
+      powerButton.style.removeProperty("box-shadow");
+      powerLight.style.removeProperty("box-shadow");
+      powerLight.style.setProperty("background-color", "darkred");
+      power = false;
+    }
+  };
+
   playButton.addEventListener("click", handlePlayClick);
   stopButton.addEventListener("click", handleStopClick);
   ejectButton.addEventListener("click", handleEjectClick);
@@ -132,4 +154,5 @@ addEventListener("DOMContentLoaded", () => {
   rewindButton.addEventListener("click", handleRewindClick);
   cassetteContainer.addEventListener("mouseover", handleCassetteHover);
   cassetteContainer.addEventListener("click", handleCassetteClose);
+  powerButton.addEventListener("click", handlePowerClick);
 });
